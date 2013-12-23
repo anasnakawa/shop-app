@@ -42,7 +42,7 @@
     Edit
   </a>
   <h1 class="title">Shopping Bill</h1>
-  <a class="button" href="#addItemModal">
+  <a class="button" href="#addItem">
     Add
   </a>
 </header>
@@ -51,22 +51,6 @@
 <div class="content">
   <div class="content-padded">
     <p class="welcome">Thanks for downloading Ratchet. This is an example HTML page that's linked up to compiled Ratchet CSS and JS, has the proper meta tags and the HTML structure. Need some more help before you start filling this with your own content? Check out some Ratchet resources:</p>
-    
-    <a href="#myModal" class="button">Open modal</a>
-
-    <div id="myModal" class="modal">
-      <header class="bar-title">
-        <h1 class="title">Modal</h1>
-        <a class="button" href="#myModal">
-          Close
-        </a>
-      </header>
-      
-      <div class="content content-padded">
-        <p>The contents of my modal.</p>
-      </div>
-    </div>
-
   </div>
 
   <ul class="list inset">
@@ -96,20 +80,38 @@
     </li>
   </ul>
 
-  <!-- modals -->
-  <div id="addItemModal" class="modal">
-    <header class="bar-title">
-      <h1 class="title">Add New Item</h1>
-      <a class="button" href="#addItemModal">
-        Close
-      </a>
-    </header>
-    
-    <div class="content content-padded">
-      <p>The contents of my modal.</p>
-    </div>
-  </div>
+  
 
 </div>
+
+<!-- modals -->
+<div id="addItem" class="modal">
+  <header class="bar-title">
+    <h1 class="title">Add New Item</h1>
+    <a class="button" href="#addItem">
+      Close
+    </a>
+  </header>
+  
+  <div class="content content-padded">
+    <form>
+      <div class="input-group">
+        <input type="text" placeholder="Milk">
+        <input type="email" placeholder="1.0">
+        <select>
+          <script type="text/javascript">
+          var cache = [];
+          for( var i = 0; i < 50; i++ ) {
+            cache.push( '<option value="{i}">{i}</option>'.replace( /{i}/g, i ) );
+          }
+          document.write( cache.join( '\n' ) );
+          </script>
+        </select>
+      </div>
+      <a class="button-main button-block">Add Item</a>
+    </form>
+  </div>
+</div>
+
 </body>
 </html>

@@ -32,57 +32,39 @@
 
 <!-- Make sure all your bars are the first things in your <body> -->
 <header class="bar-title">
-  <a class="button" href="">
-    Edit
+  <a class="button" data-bind="click: toggleEditMode">
+    <span data-bind="text: isEditMode() ? 'Cancel' : 'Edit'"></span>
   </a>
   <h1 class="title">Shopping Bill</h1>
-  <a class="button" href="#addItem">
-    Add
+  <a class="button" data-bind="click: openAddMode">
+    <i class="fa fa-plus"></i>
   </a>
 </header>
 
 <!-- Wrap all non-bar HTML in the .content div (this is actually what scrolls) -->
 <div class="content">
-  <div class="content-padded">
-    <p class="welcome">Thanks for downloading Ratchet. This is an example HTML page that's linked up to compiled Ratchet CSS and JS, has the proper meta tags and the HTML structure. Need some more help before you start filling this with your own content? Check out some Ratchet resources:</p>
-  </div>
-
-  <ul class="list inset">
-    <li>
-      <a href="http://maker.github.com/ratchet/">
-        <strong>Ratchet documentation</strong>
-        <span class="chevron"></span>
-      </a>
-    </li>
-    <li>
-      <a href="http://www.github.com/maker/ratchet/">
-        <strong>Ratchet on Github</strong>
-        <span class="chevron"></span>
-      </a>
-    </li>
-    <li>
-      <a href="https://groups.google.com/forum/#!forum/goratchet">
-        <strong>Ratchet Google group</strong>
-        <span class="chevron"></span>
-      </a>
-    </li>
-    <li>
-      <a href="http://www.twitter.com/GoRatchet">
-        <strong>Ratchet on Twitter</strong>
-        <span class="chevron"></span>
-      </a>
-    </li>
-  </ul>
-
   
+  <ul class="list" data-bind="css: { edit: isEditMode }">
+    <!-- ko foreach: shoppingItems -->
+    <li>
+      <span data-bind="text: name"></span>
+      <span class="edit-inverse count">
+        <span data-bind="text: price"></span> x <span data-bind="text: quantity"></span>
+      </span>
+      <a class="edit-action button-negative" data-bind="click: $parent.removeItem">
+        <i class="fa fa-times"></i>
+      </a>
+    </li>
+    <!-- /ko -->
+  </ul>
 
 </div>
 
 <!-- modals -->
-<div id="addItem" class="modal">
+<div id="addItem" class="modal" data-bind="css: { active: isAddMode }">
   <header class="bar-title">
     <h1 class="title">Add New Item</h1>
-    <a class="button" href="#addItem">
+    <a class="button" data-bind="click: function() { isAddMode( false ); }">
       Close
     </a>
   </header>
@@ -93,29 +75,26 @@
 
         <div class="input-row">
           <label>Name</label>
-          <input type="text" placeholder="Milk">
+          <input type="text" placeholder="Milk" data-bind="value: tempName">
         </div>
         <div class="input-row">
           <label>Price</label>
-          <input type="number" placeholder="1.0">
+          <input type="number" placeholder="1.0" data-bind="value: tempPrice">
         </div>
         <div class="input-row">
           <label>Quantity</label>
-          <select>
-            <script type="text/javascript">
-            var cache = [];
-            for( var i = 0; i < 50; i++ ) {
-              cache.push( '<option value="{i}">{i}</option>'.replace( /{i}/g, i ) );
-            }
-            document.write( cache.join( '\n' ) );
-            </script>
-          </select>
+          <select data-bind="options: tempQuantityList, value: tempQuantity"></select>
         </div>
       </div>
-      <a class="button-main button-block">Add Item</a>
+      <a class="button-main button-block" data-bind="click: addItem">Add Item</a>
     </form>
   </div>
 </div>
+
+<script src="bower_components/knockout.js/knockout.debug.js"></script>
+<script src="js/ko-default.js"></script>
+<script src="js/model.js"></script>
+<script src="js/app.js"></script>
 
 </body>
 </html>

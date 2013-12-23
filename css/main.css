@@ -24,3 +24,25 @@ body {
     margin-right: 4px;
     margin-top: 4px;
 }
+
+/**
+ * list in edit mode
+ */
+.edit-action {
+    position: relative;
+    right: -100px !important;
+    transition: right .3s ease;
+}
+
+.edit-inverse {
+    opacity: 1;
+    transition: opacity .3s ease;
+}
+
+.edit .edit-action {
+    right: 10px !important;
+}
+
+.edit .edit-inverse {
+    opacity: 0;
+}

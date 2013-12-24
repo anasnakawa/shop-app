@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html manifest="app.appcache">
 <head>
   <meta charset="utf-8">
   <title>Shopping Bill App</title>
@@ -56,6 +56,11 @@
     </li>
     <!-- /ko -->
   </ul>
+
+  <div class="total">
+    <h3 class="total-label near">Total :</h3>
+    <h2 class="price far" data-bind="text: totalPrice"></h3>
+  </div>
 
 </div>
 

@@ -13,6 +13,13 @@
 	
 	// our main list items
 	app.shoppingItems = ko.observableArray( app.data( 'shoppingList' ) || [] );
+	app.totalPrice = ko.computed(function() {
+		var total = 0;
+		ko.unwrap( app.shoppingItems ).forEach(function( item, index ) {
+			total = total + ( ko.unwrap( item.price ) * ko.unwrap( item.quantity ) );
+		});
+		return total;
+	});
 
 	// store data whenever changed
 	app.shoppingItems.subscribe(function( newValue ) {

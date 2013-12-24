@@ -3,6 +3,7 @@
 /**
  * disable text selection
  */
+
 body {
     -webkit-touch-callout: none;
     -webkit-user-select: none;
@@ -15,6 +16,7 @@ body {
 /**
  * correcting select element placement
  */
+
 .input-row label + select {
     float: right;
     width: 64%;
@@ -28,6 +30,7 @@ body {
 /**
  * list in edit mode
  */
+
 .edit-action {
     position: relative;
     right: -100px !important;
@@ -45,4 +48,43 @@ body {
 
 .edit .edit-inverse {
     opacity: 0;
+}
+
+/**
+ * total price
+ */
+
+.total {
+    position: fixed;
+    bottom: 0;
+    height: 50px;
+    box-shadow: 0 -1px 3px rgba(0, 0, 0, 0.4);
+    padding: 10px;
+    width: 100%;
+}
+
+    .total-label {
+        font-size: 20px;
+        line-height: 20px;
+        margin-top: 10px;
+        margin-left: 10px;
+    }
+
+.price {
+    margin-right: 30px;
+    font-size: 40px;
+    line-height: 40px;
+    text-align: right;
+}
+
+/**
+ * utility classes
+ */
+
+.near {
+    float: left;
+}
+
+.far {
+    float: right;
 }

@@ -31,7 +31,7 @@
 
 <!-- Make sure all your bars are the first things in your <body> -->
 <header class="bar-title">
-  <a class="button" data-bind="click: toggleEditMode">
+  <a class="button" data-bind="click: toggleEditMode, visible: shoppingItems().length">
     <span data-bind="text: isEditMode() ? 'Cancel' : 'Edit'"></span>
   </a>
   <h1 class="title">Shopping Bill</h1>

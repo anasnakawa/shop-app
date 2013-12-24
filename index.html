@@ -21,7 +21,6 @@
 
   <!-- Include the compiled Ratchet CSS -->
   <link rel="stylesheet" href="bower_components/ratchet/dist/ratchet.css" />
-  <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.css" />
   <link rel="stylesheet" href="css/main.css" />
 
   <!-- Include the compiled Ratchet JS -->
@@ -37,7 +36,7 @@
   </a>
   <h1 class="title">Shopping Bill</h1>
   <a class="button" data-bind="click: openAddMode">
-    <i class="fa fa-plus"></i>
+    Add
   </a>
 </header>
 
@@ -52,7 +51,7 @@
         <span data-bind="text: price"></span> x <span data-bind="text: quantity"></span>
       </span>
       <a class="edit-action button-negative" data-bind="click: $parent.removeItem">
-        <i class="fa fa-times"></i>
+        &times;
       </a>
     </li>
     <!-- /ko -->
@@ -93,6 +92,7 @@
 
 <script src="bower_components/knockout.js/knockout.debug.js"></script>
 <script src="js/ko-default.js"></script>
+<script src="js/store.js"></script>
 <script src="js/model.js"></script>
 <script src="js/app.js"></script>
 

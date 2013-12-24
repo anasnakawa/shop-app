@@ -4,6 +4,7 @@
 
 (function( app ) {
 
+	// model factory
 	function Item( name, price, quantity ) {
 		this.name = name ? name : '';
 		this.price = price ? price : 0;
@@ -11,7 +12,12 @@
 	}
 	
 	// our main list items
-	app.shoppingItems = ko.observableArray([]);
+	app.shoppingItems = ko.observableArray( app.data( 'shoppingList' ) || [] );
+
+	// store data whenever changed
+	app.shoppingItems.subscribe(function( newValue ) {
+		app.data( 'shoppingList', newValue );
+	});
 
 	// switchers
 	app.isAddMode = ko.observable(false);

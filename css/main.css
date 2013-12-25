@@ -62,6 +62,13 @@ body {
 }
 
 /**
+ * trim content area for the sake of total price
+ */
+.content {
+    bottom: 70px;
+}
+
+/**
  * total price
  */
 

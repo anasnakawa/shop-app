@@ -28,8 +28,12 @@ body {
 }
 
 /**
- * list in edit mode
+ * list & edit mode
  */
+
+.list {
+    overflow: hidden;
+}
 
 .edit-action {
     position: relative;
@@ -60,7 +64,8 @@ body {
     height: 50px;
     box-shadow: 0 -1px 3px rgba(0, 0, 0, 0.4);
     padding: 10px;
-    width: 100%;
+    left: 0;
+    right: 0;
 }
 
     .total-label {
@@ -71,7 +76,7 @@ body {
     }
 
 .price {
-    margin-right: 30px;
+    margin-right: 10px;
     font-size: 40px;
     line-height: 40px;
     text-align: right;

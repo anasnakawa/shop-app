@@ -35,7 +35,7 @@
     <span data-bind="text: isEditMode() ? 'Cancel' : 'Edit'"></span>
   </a>
   <h1 class="title">Shopping Bill</h1>
-  <a class="button" data-bind="click: openAddMode">
+  <a class="button" data-bind="click: openAddMode, visible: !isEditMode()">
     Add
   </a>
 </header>
@@ -48,7 +48,7 @@
     <li>
       <span data-bind="text: name"></span>
       <span class="edit-inverse count">
-        <span data-bind="text: price"></span> x <span data-bind="text: quantity"></span>
+        <span data-bind="text: quantity"></span> x <span data-bind="text: price"></span>
       </span>
       <a class="edit-action button-negative" data-bind="click: $parent.removeItem">
         &times;
@@ -67,14 +67,17 @@
 <!-- modals -->
 <div id="addItem" class="modal" data-bind="css: { active: isAddMode }">
   <header class="bar-title">
-    <h1 class="title">Add New Item</h1>
     <a class="button" data-bind="click: function() { isAddMode( false ); }">
-      Close
+      Cancel
+    </a>
+    <h1 class="title">Add New Item</h1>
+    <a class="button" data-bind="click: addItem">
+      Done
     </a>
   </header>
   
   <div class="content content-padded">
-    <form>
+    <form data-bind="submit: addItem">
       <div class="input-group">
 
         <div class="input-row">
@@ -89,8 +92,8 @@
           <label>Quantity</label>
           <select data-bind="options: tempQuantityList, value: tempQuantity"></select>
         </div>
+
       </div>
-      <a class="button-main button-block" data-bind="click: addItem">Add Item</a>
     </form>
   </div>
 </div>

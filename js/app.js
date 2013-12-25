@@ -32,7 +32,7 @@
 
 	// temp
 	app.tempName = ko.observable().default('');
-	app.tempPrice = ko.observable().default(0);
+	app.tempPrice = ko.observable().default(null);
 	app.tempQuantity = ko.observable().default(1);
 	app.tempQuantityList = ko.utils.range(0, 50);
 

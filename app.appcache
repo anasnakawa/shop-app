@@ -1,9 +1,13 @@
 CACHE MANIFEST
-# 2013-12-24:v0.0.3
+# 2013-12-24:v0.0.4
 
 # Explicitly cached 'master entries'.
 CACHE:
+index.html
 dest/app.css
 dest/app.js
 dest/app.min.js
 dest/app.min.css
+
+FALLBACK:
+offline.html

@@ -36,9 +36,13 @@ body {
 }
 
 .edit-action {
-    position: relative;
-    right: -100px !important;
-    transition: right .3s ease;
+    -webkit-transform: translateX(5rem);
+    -ms-transform: translateX(5rem);
+    -o-transform: translateX(5rem);
+    transform: translateX(5rem);
+    -webkit-transition: 500ms;
+    -o-transition: 500ms;
+    transition: 500ms;
 }
 
 .edit-inverse {
@@ -47,7 +51,10 @@ body {
 }
 
 .edit .edit-action {
-    right: 10px !important;
+    -webkit-transform: translateX(0);
+    -ms-transform: translateX(0);
+    -o-transform: translateX(0);
+    transform: translateX(0);
 }
 
 .edit .edit-inverse {

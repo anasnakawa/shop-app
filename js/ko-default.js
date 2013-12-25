@@ -12,26 +12,30 @@
 // username( undefined );   // 'guest'
 // username( 'john doe' );  // 'john doe'
 // username.reset();        // 'guest'
-ko.observable.fn['default'] = function( value ) {
-  // storeing default value
-  this._defaultValue = value;
+(function( ko ) {
 
-  // reset to default value
-  this.reset = function() {
-    this( this._defaultValue );
-  };
+  ko.observable.fn['default'] = function( value ) {
+    // storeing default value
+    this._defaultValue = value;
 
-  // initialized with undefined ?
-  if( typeof this() === 'undefined' ) {
-    this.reset();
-  }
+    // reset to default value
+    this.reset = function() {
+      this( this._defaultValue );
+    };
 
-  // whenever value becomes undefined, reset it
-  this.subscribe(function( newValue ) {
-    if( typeof newValue === 'undefined' ) {
+    // initialized with undefined ?
+    if( typeof this() === 'undefined' ) {
       this.reset();
     }
-  });
 
-  return this;
-}
+    // whenever value becomes undefined, reset it
+    this.subscribe(function( newValue ) {
+      if( typeof newValue === 'undefined' ) {
+        this.reset();
+      }
+    });
+
+    return this;
+  }
+
+})( ko );

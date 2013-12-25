@@ -40,9 +40,9 @@ body {
     -ms-transform: translateX(5rem);
     -o-transform: translateX(5rem);
     transform: translateX(5rem);
-    -webkit-transition: 500ms;
-    -o-transition: 500ms;
-    transition: 500ms;
+    -webkit-transition: .3s;
+    -o-transition: .3s;
+    transition: .3s;
 }
 
 .edit-inverse {

@@ -5,6 +5,7 @@
 (function( app ) {
 
 	// model factory
+	// -------------
 	function Item( name, price, quantity ) {
 		this.name = name ? name : '';
 		this.price = price ? price : 0;
@@ -37,6 +38,7 @@
 	app.tempQuantityList = ko.utils.range(0, 50);
 
 	// handlers
+	// --------
 	app.openAddMode = function( data, event ) {
 		app.tempName.reset();
 		app.tempPrice.reset();
@@ -59,9 +61,7 @@
 	app.removeItem = function( data, event ) {
 		app.shoppingItems.remove( data );
 		// when list goes empty, trun off edit mode
-		if( !app.shoppingItems().length ) {
-			app.isEditMode(false);
-		}
+		!app.shoppingItems().length && app.isEditMode(false);
 	}
 
 	ko.applyBindings( app );

@@ -16,7 +16,7 @@
 	app.totalPrice = ko.computed(function() {
 		var total = 0;
 		ko.unwrap( app.shoppingItems ).forEach(function( item, index ) {
-			total = total + ( ko.unwrap( item.price ) * ko.unwrap( item.quantity ) );
+			total = total + ( parseFloat( ko.unwrap( item.price ) ) * parseInt( ko.unwrap( item.quantity ) , 10 ) );
 		});
 		return total;
 	});
@@ -27,13 +27,13 @@
 	});
 
 	// switchers
-	app.isAddMode = ko.observable(false);
+	app.isAddMode  = ko.observable(false);
 	app.isEditMode = ko.observable(false);
 
 	// temp
-	app.tempName = ko.observable().default('');
-	app.tempPrice = ko.observable().default(null);
-	app.tempQuantity = ko.observable().default(1);
+	app.tempName 		 = ko.observable().default('');
+	app.tempPrice 		 = ko.observable().default(null);
+	app.tempQuantity 	 = ko.observable().default(1);
 	app.tempQuantityList = ko.utils.range(0, 50);
 
 	// handlers
@@ -49,12 +49,19 @@
 	}
 
 	app.addItem = function( data, event ) {
+		if( app.tempName() == '' ) {
+			return;
+		}
 		app.isAddMode(false);
 		app.shoppingItems.push( new Item( app.tempName(), app.tempPrice(), app.tempQuantity() ) );
 	}
 
 	app.removeItem = function( data, event ) {
 		app.shoppingItems.remove( data );
+		// when list goes empty, trun off edit mode
+		if( !app.shoppingItems().length ) {
+			app.isEditMode(false);
+		}
 	}
 
 	ko.applyBindings( app );

@@ -1,7 +1,7 @@
 Shop App
 ========
 
-offline capable web app with no backend to help you track your total bill while you are shopping.
+HTML5 offline capable web app with no backend ( utilizing localStorage ) to help you track your total bill while you are shopping.
 
 ### Demo
 
